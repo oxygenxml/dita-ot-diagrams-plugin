@@ -17,5 +17,5 @@ Copyright and License
 ---------------------
 Copyright 2019 Syncro Soft SRL.
 
-This project is licensed under [Apache License 2.0](https://github.com/oxygenxml/dita-latex/blob/master/LICENSE).
+This project is licensed under [Apache License 2.0](https://github.com/oxygenxml/dita-plant-uml/blob/master/LICENSE).
 The plugin contains a Java library provided by the PlantUML under the Apache 2.0 License.
