@@ -4,11 +4,6 @@
 ============================================================================ 
 Copyright 2019 Syncro Soft SRL.
 
-This project includes the JLaTeXMath Library released under the GNU General Public License v2.0 w/Classpath exception license 
-(see lib/jlatexmath-LICENSE.txt)
-Copyright (C) 2009-2011 DENIZET Calixte
-Copyright (C) Kris Coolsaet
-Copyright (C) Nico Van Cleemput
-Copyright (C) Kurt Vermeulen
-Copyright 2004-2007 Universiteit Gent
-Site: https://github.com/opencollab/jlatexmath
+This project includes the PlantUML Library released under the Apache 2.0 License
+(see com.oxygenxml.plantuml.svg/lib/COPYING)
+Site: http://plantuml.com/index
