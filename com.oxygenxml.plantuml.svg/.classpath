@@ -1,0 +1,9 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<classpath>
+	<classpathentry kind="con" path="org.eclipse.jdt.launching.JRE_CONTAINER"/>
+	<classpathentry kind="src" path="src"/>
+	<classpathentry kind="lib" path="lib/plantuml.jar"/>
+	<classpathentry kind="lib" path="/eXml/lib/oxygen-patched-saxon-9.jar" sourcepath="/eXml/lib/src/oxygen-patched-saxon-9-sources.jar"/>
+	<classpathentry kind="lib" path="/eXml/lib/oxygen-patched-batik.jar" sourcepath="/eXml/lib/src/oxygen-patched-batik-sources.jar"/>
+	<classpathentry kind="output" path="bin"/>
+</classpath>
