@@ -7,7 +7,6 @@
   
   <feature extension="dita.xsl.xhtml" value="xsl/xhtmlSVG.xsl" type="file"/>
   <feature extension="dita.xsl.html5" value="xsl/xhtmlSVG.xsl" type="file"/>
-  <!--<feature extension="com.oxygenxml.pdf.css.xsl.merged2html5" value="xsl/xhtmlSVG.xsl" type="file"/>-->
   
   <feature extension="dita.xsl.xslfo" value="xsl/pdfSVG.xsl" type="file"/>
 </plugin>
