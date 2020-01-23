@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE topic PUBLIC "-//OASIS//DTD DITA Topic//EN" "topic.dtd">
+<topic id="test_diagram_includes_target">
+    <title>Target content</title>
+    <body>
+        <p>
+            <foreign outputclass="embed-plant-uml">
+                @startuml(id=olb-mobile-end-split)
+                split
+                ->Mobile;
+                (Z)
+                Detach
+                splitagain
+                ->Online Banking;
+                stop
+                endsplit
+                @enduml
+            </foreign>
+        </p>
+    </body>
+</topic>

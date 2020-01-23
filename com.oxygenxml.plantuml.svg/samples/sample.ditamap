@@ -3,4 +3,5 @@
 <map>
     <title>Sample</title>
     <topicref href="testDiagram.dita"/>
+    <topicref href="test_diagram_includes.dita"/>
 </map>
