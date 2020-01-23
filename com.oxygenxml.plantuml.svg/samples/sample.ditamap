@@ -4,4 +4,5 @@
     <title>Sample</title>
     <topicref href="testDiagram.dita"/>
     <topicref href="test_diagram_includes.dita"/>
+    <topicref href="test_diagram_includes_target.dita" processing-role="resource-only"/>
 </map>

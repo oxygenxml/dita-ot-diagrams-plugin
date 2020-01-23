@@ -1,11 +1,14 @@
 package com.oxygenxml.plantuml.svg;
 
 import java.io.ByteArrayOutputStream;
+import java.io.File;
+import java.net.URL;
 import java.nio.charset.Charset;
 
 import net.sf.saxon.expr.XPathContext;
 import net.sf.saxon.lib.ExtensionFunctionCall;
 import net.sf.saxon.lib.ExtensionFunctionDefinition;
+import net.sf.saxon.om.NodeInfo;
 import net.sf.saxon.om.Sequence;
 import net.sf.saxon.om.StructuredQName;
 import net.sf.saxon.trans.XPathException;
@@ -40,6 +43,13 @@ public class PlantumlToSVG extends ExtensionFunctionDefinition {
 			public Sequence call(XPathContext arg0, Sequence[] arguments) throws XPathException {
 				try {
 					String umlContent = ((StringValue) arguments[0].iterate().next()).getStringValue();
+					if(arg0.getContextItem() instanceof NodeInfo){
+						String baseURI = ((NodeInfo)arg0.getContextItem()).getBaseURI();
+						if(baseURI != null) {
+							File newCurrentDir = new File(new URL(baseURI).toURI()).getParentFile();
+							java.lang.System.setProperty("plantuml.include.path", newCurrentDir.getAbsolutePath());
+						}
+					}
 
 					SourceStringReader reader = new SourceStringReader(umlContent);
 					final ByteArrayOutputStream os = new ByteArrayOutputStream();
