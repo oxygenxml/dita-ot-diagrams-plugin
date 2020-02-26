@@ -12,7 +12,6 @@ available in the base directory of this plugin.
   xmlns:saxon="http://saxon.sf.net/"
   xmlns:converter="java:com.oxygenxml.plantuml.svg.PlantumlToSVG">
   <xsl:template match="*[contains(@class, ' topic/foreign ')][contains(@outputclass, 'embed-plant-uml')] | *[contains(@class, ' topic/plant-uml ')]" priority="10">
-    <xsl:message>IN HERE.............</xsl:message>
     <span>
       <xsl:call-template name="commonattributes"/>
       <xsl:copy-of select="parse-xml(converter:convert(text()))" use-when="not(function-available('saxon:parse'))"/>
