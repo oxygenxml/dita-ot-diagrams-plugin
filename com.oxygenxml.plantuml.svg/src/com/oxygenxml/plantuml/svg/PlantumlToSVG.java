@@ -22,7 +22,7 @@ public class PlantumlToSVG extends ExtensionFunctionDefinition {
 
 	  @Override
 	  public SequenceType[] getArgumentTypes() {
-	    return new SequenceType[] { SequenceType.SINGLE_STRING};
+	    return new SequenceType[] { SequenceType.SINGLE_STRING, SequenceType.OPTIONAL_STRING};
 	  }
 
 	  @Override
@@ -43,7 +43,17 @@ public class PlantumlToSVG extends ExtensionFunctionDefinition {
 			public Sequence call(XPathContext arg0, Sequence[] arguments) throws XPathException {
 				try {
 					String umlContent = ((StringValue) arguments[0].iterate().next()).getStringValue();
-					if(arg0.getContextItem() instanceof NodeInfo){
+					boolean pathWasSet = false;
+					if(arguments.length > 1) {
+						//The include path is also given here
+						String umlIncludePath = ((StringValue) arguments[1].iterate().next()).getStringValue();
+						if(umlIncludePath != null && ! umlIncludePath.isEmpty()) {
+							java.lang.System.setProperty("plantuml.include.path", umlIncludePath);
+							pathWasSet = true;
+						}
+					}
+					if(!pathWasSet && arg0.getContextItem() instanceof NodeInfo){
+						//Use the base URI location.
 						String baseURI = ((NodeInfo)arg0.getContextItem()).getBaseURI();
 						if(baseURI != null) {
 							File newCurrentDir = new File(new URL(baseURI).toURI()).getParentFile();
