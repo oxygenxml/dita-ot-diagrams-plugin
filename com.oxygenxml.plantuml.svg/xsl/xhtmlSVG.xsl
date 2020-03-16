@@ -11,11 +11,12 @@ available in the base directory of this plugin.
   version="2.0"
   xmlns:saxon="http://saxon.sf.net/"
   xmlns:converter="java:com.oxygenxml.plantuml.svg.PlantumlToSVG">
+  <xsl:param name="plantuml.include.path"/>
   <xsl:template match="*[contains(@class, ' topic/foreign ')][contains(@outputclass, 'embed-plant-uml')] | *[contains(@class, ' topic/plant-uml ')]" priority="10">
     <span>
       <xsl:call-template name="commonattributes"/>
-      <xsl:copy-of select="parse-xml(converter:convert(text()))" use-when="not(function-available('saxon:parse'))"/>
-      <xsl:copy-of select="saxon:parse(converter:convert(text())" use-when="function-available('saxon:parse')"/>
+      <xsl:copy-of select="parse-xml(converter:convert(text(), $plantuml.include.path))" use-when="not(function-available('saxon:parse'))"/>
+      <xsl:copy-of select="saxon:parse(converter:convert(text(), $plantuml.include.path)" use-when="function-available('saxon:parse')"/>
     </span>
   </xsl:template>
 </xsl:stylesheet>

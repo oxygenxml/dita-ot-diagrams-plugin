@@ -1,0 +1,5 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<extension>
+    <param name="plantuml.include.path" expression="${plantuml.include.path}" if="plantuml.include.path"/>
+</extension>
+
