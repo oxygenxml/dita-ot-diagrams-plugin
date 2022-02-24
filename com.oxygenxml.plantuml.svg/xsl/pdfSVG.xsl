@@ -9,8 +9,10 @@ available in the base directory of this plugin.
 -->
 <xsl:stylesheet xmlns:xsl="http://www.w3.org/1999/XSL/Transform" version="2.0"
     xmlns:saxon="http://saxon.sf.net/" xmlns:converter="java:com.oxygenxml.plantuml.svg.PlantumlToSVG"
+    xmlns:base64Encoder="java:com.oxygenxml.mermaid.Base64Encoder"
     xmlns:fo="http://www.w3.org/1999/XSL/Format">
     <xsl:param name="plantuml.include.path"/>
+    <!-- Plant UML -->
     <xsl:template
         match="*[contains(@class, ' topic/foreign ')][contains(@outputclass, 'embed-plant-uml')] | *[contains(@class, ' topic/plant-uml ')]"
         priority="10">
@@ -21,6 +23,16 @@ available in the base directory of this plugin.
                     use-when="not(function-available('saxon:parse'))"/>
                 <xsl:copy-of select="saxon:parse(converter:convert(text(), $plantuml.include.path)"
                     use-when="function-available('saxon:parse')"/>
+            </fo:instream-foreign-object>
+        </fo:inline>
+    </xsl:template>
+    
+    <!-- Mermaid -->
+    <xsl:template match="*[contains(@class, ' topic/foreign ')][contains(@outputclass, 'embed-mermaid-diagram')] | *[contains(@class, ' topic/mermaid-diagram ')]" priority="10">
+        <fo:inline>
+            <xsl:call-template name="commonattributes"/>
+            <fo:instream-foreign-object>
+                <xsl:copy-of select="document(concat('https://mermaid.ink/svg/', base64Encoder:encode(text())))"/>
             </fo:instream-foreign-object>
         </fo:inline>
     </xsl:template>
