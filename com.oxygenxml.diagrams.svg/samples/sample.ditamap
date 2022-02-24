@@ -2,7 +2,8 @@
 <!DOCTYPE map PUBLIC "-//OASIS//DTD DITA Map//EN" "map.dtd">
 <map>
     <title>Sample</title>
-    <topicref href="testDiagram.dita"/>
-    <topicref href="test_diagram_includes.dita"/>
-    <topicref href="test_diagram_includes_target.dita" processing-role="resource-only"/>
+    <topicref href="testPlantUMLDiagram.dita"/>
+    <topicref href="testMermaidDiagram.dita"/>
+    <topicref href="test_plant_uml_diagram_includes.dita"/>
+    <topicref href="test_plant_uml_diagram_includes_target.dita" processing-role="resource-only"/>
 </map>
