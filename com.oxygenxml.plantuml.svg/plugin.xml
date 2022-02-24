@@ -1,8 +1,8 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<plugin id="com.oxygenxml.plantuml.svg">
+<plugin id="com.oxygenxml.diagrams.svg">
   <feature extension="package.support.name" value="Oxygen XML Editor Support"/>
   <feature extension="package.support.email" value="support@oxygenxml.com"/>
-  <feature extension="dita.conductor.lib.import" file="lib/plantumlToSVG.jar"  xml:base="."/>
+  <feature extension="dita.conductor.lib.import" file="lib/extensions.jar"  xml:base="."/>
   <feature extension="dita.conductor.lib.import" file="lib/plantuml.jar"  xml:base="."/>
   
   <feature extension="dita.xsl.xhtml" value="xsl/xhtmlSVG.xsl" type="file"/>
