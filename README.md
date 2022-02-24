@@ -1,7 +1,8 @@
-# dita-plant-uml
+# dita-diagrams-svg
 DITA Open Toolkit plugin which allows publishing embedded Plant UML and Mermaid diagrams to HTML and PDF.
 
 http://plantuml.com/index
+
 https://mermaid-js.github.io
 
 The plugin was tested and developed with DITA OT 3.7
