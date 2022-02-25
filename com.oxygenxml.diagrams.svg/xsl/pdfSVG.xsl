@@ -31,9 +31,7 @@ available in the base directory of this plugin.
     <xsl:template match="*[contains(@class, ' topic/foreign ')][contains(@outputclass, 'embed-mermaid-diagram')] | *[contains(@class, ' topic/mermaid-diagram ')]" priority="10">
         <fo:inline>
             <xsl:call-template name="commonattributes"/>
-            <fo:instream-foreign-object>
-                <xsl:copy-of select="document(concat('https://mermaid.ink/svg/', base64Encoder:encode(text())))"/>
-            </fo:instream-foreign-object>
+            <fo:external-graphic src="{concat('https://mermaid.ink/img/', base64Encoder:encode(text()))}"/>
         </fo:inline>
     </xsl:template>
 </xsl:stylesheet>
