@@ -64,12 +64,10 @@ public class PlantumlToSVG extends ExtensionFunctionDefinition {
 					SourceStringReader reader = new SourceStringReader(umlContent);
 					final ByteArrayOutputStream os = new ByteArrayOutputStream();
 					// Write the first image to "os"
-					reader.outputImage(os, new FileFormatOption(FileFormat.SVG));
+					reader.outputImage(os, new FileFormatOption(FileFormat.SVG, false));
 					os.close();
-
 					// The XML is stored into svg
 					String svg = new String(os.toByteArray(), Charset.forName("UTF-8"));
-					svg = svg.replaceAll("<!--[\\s\\S]*?--></g>", "</g>");
 					return StringValue.makeStringValue(svg);
 				} catch (Exception ex) {
 					throw new XPathException(ex);
