@@ -67,7 +67,7 @@ public class PlantumlToSVG extends ExtensionFunctionDefinition {
 					reader.outputImage(os, new FileFormatOption(FileFormat.SVG, false));
 					os.close();
 					// The XML is stored into svg
-					String svg = new String(os.toByteArray(), Charset.forName("UTF-8"));
+					String svg = new String(os.toByteArray(), Charset.forName("UTF-8")).replace("xmlns=\"\"", "");
 					return StringValue.makeStringValue(svg);
 				} catch (Exception ex) {
 					throw new XPathException(ex);
