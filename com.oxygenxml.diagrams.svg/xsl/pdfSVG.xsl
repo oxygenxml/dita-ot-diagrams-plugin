@@ -19,9 +19,9 @@ available in the base directory of this plugin.
         <fo:inline>
             <xsl:call-template name="commonattributes"/>
             <fo:instream-foreign-object>
-                <xsl:copy-of select="parse-xml(converter:convert(text(), $plantuml.include.path))"
+              <xsl:copy-of select="parse-xml(converter:convert(string-join(text(), ''), $plantuml.include.path))"
                     use-when="not(function-available('saxon:parse'))"/>
-                <xsl:copy-of select="saxon:parse(converter:convert(text(), $plantuml.include.path)"
+              <xsl:copy-of select="saxon:parse(converter:convert(string-join(text(), ''), $plantuml.include.path)"
                     use-when="function-available('saxon:parse')"/>
             </fo:instream-foreign-object>
         </fo:inline>
@@ -31,7 +31,7 @@ available in the base directory of this plugin.
     <xsl:template match="*[contains(@class, ' topic/foreign ')][contains(@outputclass, 'embed-mermaid-diagram')] | *[contains(@class, ' topic/mermaid-diagram ')]" priority="10">
         <fo:inline>
             <xsl:call-template name="commonattributes"/>
-            <fo:external-graphic src="{concat('https://mermaid.ink/img/', base64Encoder:encode(text()))}"/>
+          <fo:external-graphic src="{concat('https://mermaid.ink/img/', base64Encoder:encode(string-join(text(), '')))}"/>
         </fo:inline>
     </xsl:template>
 </xsl:stylesheet>

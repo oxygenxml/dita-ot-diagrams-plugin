@@ -18,8 +18,8 @@ available in the base directory of this plugin.
   <xsl:template match="*[contains(@class, ' topic/foreign ')][contains(@outputclass, 'embed-plant-uml')] | *[contains(@class, ' topic/plant-uml ')]" priority="10">
     <span>
       <xsl:call-template name="commonattributes"/>
-      <xsl:copy-of select="parse-xml(converter:convert(text(), $plantuml.include.path))" use-when="not(function-available('saxon:parse'))"/>
-      <xsl:copy-of select="saxon:parse(converter:convert(text(), $plantuml.include.path)" use-when="function-available('saxon:parse')"/>
+      <xsl:copy-of select="parse-xml(converter:convert(string-join(text(), ''), $plantuml.include.path))" use-when="not(function-available('saxon:parse'))"/>
+      <xsl:copy-of select="saxon:parse(converter:convert(string-join(text(), ''), $plantuml.include.path)" use-when="function-available('saxon:parse')"/>
     </span>
   </xsl:template>
   
@@ -27,7 +27,7 @@ available in the base directory of this plugin.
   <xsl:template match="*[contains(@class, ' topic/foreign ')][contains(@outputclass, 'embed-mermaid-diagram')] | *[contains(@class, ' topic/mermaid-diagram ')]" priority="10">
     <span>
       <xsl:call-template name="commonattributes"/>
-      <xsl:copy-of select="document(concat('https://mermaid.ink/svg/', base64Encoder:encode(text())))"/>
+      <xsl:copy-of select="document(concat('https://mermaid.ink/svg/', base64Encoder:encode(string-join(text(), ''))))"/>
     </span>
   </xsl:template>
 </xsl:stylesheet>
