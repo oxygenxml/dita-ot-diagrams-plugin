@@ -9,9 +9,7 @@ available in the base directory of this plugin.
 -->
 <xsl:stylesheet xmlns:xsl="http://www.w3.org/1999/XSL/Transform"
   version="2.0"
-  xmlns:saxon="http://saxon.sf.net/"
-  xmlns:converter="java:com.oxygenxml.plantuml.svg.PlantumlToSVG"
-  xmlns:base64Encoder="java:com.oxygenxml.mermaid.Base64Encoder" exclude-result-prefixes="saxon converter base64Encoder">
+  xmlns:saxon="http://saxon.sf.net/">
   <xsl:param name="plantuml.include.path"/>
   
   <!-- Plant UML -->
@@ -25,9 +23,14 @@ available in the base directory of this plugin.
   
   <!-- Mermaid -->
   <xsl:template match="*[contains(@class, ' topic/foreign ')][contains(@outputclass, 'embed-mermaid-diagram')] | *[contains(@class, ' topic/mermaid-diagram ')]" priority="10">
-    <span>
-      <xsl:call-template name="commonattributes"/>
-      <xsl:copy-of select="document(concat('https://mermaid.ink/svg/', base64Encoder:encode(string-join(text(), ''))))"/>
-    </span>
+    <div><script type="module">
+    import mermaid from 'https://cdn.jsdelivr.net/npm/mermaid@9/dist/mermaid.esm.min.mjs';
+    mermaid.initialize({ startOnLoad: true });
+  </script>
+    <pre>
+	<xsl:call-template name="commonattributes"/>
+    <xsl:copy-of select="string-join(text(), '')"/>
+    </pre>
+	</div>
   </xsl:template>
 </xsl:stylesheet>
