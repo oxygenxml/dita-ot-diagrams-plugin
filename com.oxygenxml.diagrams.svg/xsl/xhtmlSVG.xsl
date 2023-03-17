@@ -12,6 +12,7 @@ available in the base directory of this plugin.
   xmlns:saxon="http://saxon.sf.net/"
   xmlns:converter="java:com.oxygenxml.plantuml.svg.PlantumlToSVG"
   xmlns:base64Encoder="java:com.oxygenxml.mermaid.Base64Encoder" exclude-result-prefixes="saxon converter base64Encoder">
+  <xsl:param name="transtype"/>
   <xsl:param name="plantuml.include.path"/>
   
   <!-- Plant UML -->
