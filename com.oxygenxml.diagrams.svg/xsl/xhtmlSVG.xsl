@@ -27,7 +27,14 @@ available in the base directory of this plugin.
   <xsl:template match="*[contains(@class, ' topic/foreign ')][contains(@outputclass, 'embed-mermaid-diagram')] | *[contains(@class, ' topic/mermaid-diagram ')]" priority="10">
     <span>
       <xsl:call-template name="commonattributes"/>
-      <xsl:copy-of select="document(concat('https://mermaid.ink/svg/', base64Encoder:encode(string-join(text(), ''))))"/>
+      <xsl:choose>
+        <xsl:when test="starts-with($transtype, 'pdf-css-html5')">
+          <img src="{concat('https://mermaid.ink/img/', base64Encoder:encode(string-join(text(), '')))}"/>
+        </xsl:when>
+        <xsl:otherwise>
+          <xsl:copy-of select="document(concat('https://mermaid.ink/svg/', base64Encoder:encode(string-join(text(), ''))))"/>
+        </xsl:otherwise>
+      </xsl:choose>
     </span>
   </xsl:template>
 </xsl:stylesheet>
