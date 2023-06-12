@@ -14,6 +14,10 @@ If you set the **@outputclass="embed-plant-uml"** attribute on a DITA &lt;foreig
 The "samples" folder contains a sample DITA topic with a Plant UML equation which is properly displayed when converted to HTML and PDF-based outputs.
   
 ![Preview Plant UML as SVG](previewPlantUML.png)
+
+## Security
+The PlantUML-based diagram generation is done by using local libraries without contacting any remote server.  
+The Mermaid-based diagram generator is done by sending the diagram in base 64 form to the Mermaid service (https://mermaid.ink) and obtaining from that web service the corresponding image.
   
 Copyright and License
 ---------------------
