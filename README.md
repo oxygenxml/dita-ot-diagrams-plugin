@@ -15,6 +15,10 @@ The "samples" folder contains a sample DITA topic with a Plant UML equation whic
   
 ![Preview Plant UML as SVG](previewPlantUML.png)
 
+## Installation
+This plugin is not bundled with the publishing engine inside an Oxygen XML Editor/Author installation.
+The DITA OT plugin folder **com.oxygenxml.diagrams.svg** can be manually downloaded, copied to a DITA Open Toolkit **plugins** folder and then installed using the **dita --install** command line. If you are publishing from Oxygen XML Editor, manual installation steps for plugins can be found here: https://www.oxygenxml.com/doc/ug-editor/topics/dita-ot-install-plugin.html
+
 ## Security
 The PlantUML-based diagram generation is done by using local libraries without contacting any remote server.  
 The Mermaid-based diagram generator is done by sending the diagram in base 64 form to the Mermaid service (https://mermaid.ink) and obtaining from that web service the corresponding image.
