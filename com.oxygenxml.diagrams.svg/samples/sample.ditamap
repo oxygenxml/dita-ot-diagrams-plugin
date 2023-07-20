@@ -4,6 +4,8 @@
     <title>Sample</title>
     <topicref href="testPlantUMLDiagram.dita"/>
     <topicref href="testMermaidDiagram.dita"/>
+    <topicref href="testPlantUMLDiagram.md" format="markdown"/>
+    <topicref href="testMermaidDiagram.md" format="markdown"/>
     <topicref href="test_plant_uml_diagram_includes.dita"/>
     <topicref href="test_plant_uml_diagram_includes_target.dita" processing-role="resource-only"/>
 </map>
