@@ -7,7 +7,7 @@ https://mermaid-js.github.io
 
 The plugin was tested and developed with DITA OT 3.7
 
-If you set the **@outputclass="embed-mermaid-diagram"** attribute on a DITA &lt;foreign> element the plugin will attempt to convert it to SVG using the free Mermaid web site converter.
+If you set the **@outputclass="embed-mermaid-diagram"** attribute on a DITA &lt;foreign> element the plugin will attempt to convert it to SVG (for HTML-based output) or to a binary image format for PDF output using the free Mermaid web site converter.
 
 If you set the **@outputclass="embed-plant-uml"** attribute on a DITA &lt;foreign> element the plugin will attempt to convert it to SVG using the PlantUML project..
 
