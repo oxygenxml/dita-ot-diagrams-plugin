@@ -9,7 +9,9 @@
   xmlns:saxon="http://saxon.sf.net/"
   xmlns:converter="java:com.oxygenxml.plantuml.svg.PlantumlToSVG"
   xmlns:base64Encoder="java:com.oxygenxml.mermaid.Base64Encoder"
+  xmlns:urlUtils="java:com.oxygenxml.mermaid.URLUtils"
   xmlns:fo="http://www.w3.org/1999/XSL/Format"
+  exclude-result-prefixes="saxon converter base64Encoder urlUtils"
   version="3.0">
 
   <!-- Plant UML -->
@@ -28,7 +30,14 @@
   <xsl:template match="*[contains(@class, ' topic/foreign ')][contains(@outputclass, 'embed-mermaid-diagram')] | *[contains(@class, ' topic/mermaid-diagram ')]" priority="10">
     <fo:inline>
       <xsl:call-template name="commonattributes"/>
-      <fo:external-graphic src="{concat('https://mermaid.ink/img/', base64Encoder:encode(string-join(text(), '')))}"/>
+      <xsl:choose>
+        <xsl:when test="urlUtils:check('https://mermaid.ink')">
+          <fo:external-graphic src="{concat('https://mermaid.ink/img/', base64Encoder:encode(string-join(text(), '')))}"/>
+        </xsl:when>
+        <xsl:otherwise>
+          <xsl:message>[OXYXX001W][WARN] Cannot generate Mermaid diagram, please check you have access to https://mermaid.ink.</xsl:message>
+        </xsl:otherwise>
+      </xsl:choose>
     </fo:inline>
   </xsl:template>
 </xsl:stylesheet>

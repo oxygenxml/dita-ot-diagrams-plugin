@@ -9,6 +9,7 @@
   xmlns:saxon="http://saxon.sf.net/"
   xmlns:converter="java:com.oxygenxml.plantuml.svg.PlantumlToSVG"
   xmlns:base64Encoder="java:com.oxygenxml.mermaid.Base64Encoder"
+  xmlns:urlUtils="java:com.oxygenxml.mermaid.URLUtils"
   exclude-result-prefixes="#all"
   version="3.0">
 
@@ -29,11 +30,18 @@
     <span>
       <xsl:call-template name="commonattributes"/>
       <xsl:choose>
-        <xsl:when test="starts-with($transtype, 'pdf-css-html5')">
-          <img src="{concat('https://mermaid.ink/img/', base64Encoder:encode(string-join(text(), '')))}"/>
+        <xsl:when test="urlUtils:check('https://mermaid.ink')">
+          <xsl:choose>
+            <xsl:when test="starts-with($transtype, 'pdf-css-html5')">
+              <img src="{concat('https://mermaid.ink/img/', base64Encoder:encode(string-join(text(), '')))}"/>
+            </xsl:when>
+            <xsl:otherwise>
+              <xsl:copy-of select="document(concat('https://mermaid.ink/svg/', base64Encoder:encode(string-join(text(), ''))))"/>
+            </xsl:otherwise>
+          </xsl:choose>
         </xsl:when>
         <xsl:otherwise>
-          <xsl:copy-of select="document(concat('https://mermaid.ink/svg/', base64Encoder:encode(string-join(text(), ''))))"/>
+          <xsl:message>[OXYXX001W][WARN] Cannot generate Mermaid diagram, please check you have access to https://mermaid.ink.</xsl:message>
         </xsl:otherwise>
       </xsl:choose>
     </span>
