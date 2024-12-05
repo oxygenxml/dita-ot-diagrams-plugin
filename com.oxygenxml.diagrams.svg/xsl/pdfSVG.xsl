@@ -31,7 +31,7 @@
     <fo:inline>
       <xsl:call-template name="commonattributes"/>
       <xsl:choose>
-        <xsl:when test="urlUtils:check('https://mermaid.ink')">
+        <xsl:when test="urlUtils:checkHTTPResourceAccessible('https://mermaid.ink')">
           <fo:external-graphic src="{concat('https://mermaid.ink/img/', base64Encoder:encode(string-join(text(), '')))}"/>
         </xsl:when>
         <xsl:otherwise>

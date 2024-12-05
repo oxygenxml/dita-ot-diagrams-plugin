@@ -23,7 +23,7 @@ public class URLUtils extends ExtensionFunctionDefinition {
 
 	@Override
 	public StructuredQName getFunctionQName() {
-		return new StructuredQName("URLUtils", "java:com.oxygenxml.mermaid.URLUtils", "check");
+		return new StructuredQName("URLUtils", "java:com.oxygenxml.mermaid.URLUtils", "checkHTTPResourceAccessible");
 	}
 
 	@Override

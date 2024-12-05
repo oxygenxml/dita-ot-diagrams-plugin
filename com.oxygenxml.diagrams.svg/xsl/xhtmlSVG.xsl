@@ -30,7 +30,7 @@
     <span>
       <xsl:call-template name="commonattributes"/>
       <xsl:choose>
-        <xsl:when test="urlUtils:check('https://mermaid.ink')">
+        <xsl:when test="urlUtils:checkHTTPResourceAccessible('https://mermaid.ink')">
           <xsl:choose>
             <xsl:when test="starts-with($transtype, 'pdf-css-html5')">
               <img src="{concat('https://mermaid.ink/img/', base64Encoder:encode(string-join(text(), '')))}"/>
