@@ -44,6 +44,7 @@ public class URLUtils extends ExtensionFunctionDefinition {
 					connection.setConnectTimeout(3000);
 					connection.setReadTimeout(3000);
 					int responseCode = connection.getResponseCode();
+					connection.disconnect();
 					return BooleanValue.get(responseCode >= 200 && responseCode < 400);
 				} catch (IOException e) {
 					return BooleanValue.FALSE;
