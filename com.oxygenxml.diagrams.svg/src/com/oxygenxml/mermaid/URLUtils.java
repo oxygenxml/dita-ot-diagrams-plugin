@@ -2,7 +2,7 @@ package com.oxygenxml.mermaid;
 
 import java.io.IOException;
 import java.net.HttpURLConnection;
-import java.net.URL;
+import java.net.URI;
 
 import net.sf.saxon.expr.XPathContext;
 import net.sf.saxon.lib.ExtensionFunctionCall;
@@ -39,7 +39,7 @@ public class URLUtils extends ExtensionFunctionDefinition {
 			public Sequence call(XPathContext arg0, Sequence[] arguments) throws XPathException {
 				try {
 					String urlString = ((StringValue) arguments[0].iterate().next()).getStringValue();
-					HttpURLConnection connection = (HttpURLConnection) new URL(urlString).openConnection();
+					HttpURLConnection connection = (HttpURLConnection) URI.create(urlString).toURL().openConnection();
 					connection.setRequestMethod("HEAD");
 					connection.setConnectTimeout(3000);
 					connection.setReadTimeout(3000);

@@ -2,7 +2,7 @@ package com.oxygenxml.plantuml.svg;
 
 import java.io.ByteArrayOutputStream;
 import java.io.File;
-import java.net.URL;
+import java.net.URI;
 import java.nio.charset.Charset;
 
 import net.sf.saxon.expr.XPathContext;
@@ -56,7 +56,7 @@ public class PlantumlToSVG extends ExtensionFunctionDefinition {
 						//Use the base URI location.
 						String baseURI = ((NodeInfo)arg0.getContextItem()).getBaseURI();
 						if(baseURI != null) {
-							File newCurrentDir = new File(new URL(baseURI).toURI()).getParentFile();
+							File newCurrentDir = new File(URI.create(baseURI)).getParentFile();
 							java.lang.System.setProperty("plantuml.include.path", newCurrentDir.getAbsolutePath());
 						}
 					}
