@@ -5,7 +5,7 @@ http://plantuml.com/index
 
 https://mermaid-js.github.io
 
-The plugin was tested and developed with DITA OT 3.7
+The plugin was tested and developed with DITA OT 4.4
 
 If you set the **@outputclass="embed-mermaid-diagram"** attribute on a DITA &lt;foreign> element the plugin will attempt to convert it to SVG (for HTML-based output) or to a binary image format for PDF output using the free Mermaid web site converter.
 
@@ -25,7 +25,7 @@ The Mermaid-based diagram generator is done by sending the diagram in base 64 fo
   
 Copyright and License
 ---------------------
-Copyright 2022 Syncro Soft SRL.
+Copyright 2026 Syncro Soft SRL.
 
 This project is licensed under [Apache License 2.0](https://github.com/oxygenxml/dita-ot-diagrams-plugin/blob/master/LICENSE).
 The plugin contains a Java library provided by the PlantUML project under the Apache 2.0 License.
