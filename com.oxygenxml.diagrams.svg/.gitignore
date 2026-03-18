@@ -1,3 +1,5 @@
 compile.bat
-/bin/
-/classes/
+bin/
+classes/
+out/
+temp/
