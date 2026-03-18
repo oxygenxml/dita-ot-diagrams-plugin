@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE topic PUBLIC "-//OASIS//DTD DITA Topic//EN" "topic.dtd">
+<topic id="test_diagram_includes">
+    <title>Test PlantUML diagram includes</title>
+    <body>
+        <p>
+            <foreign outputclass="embed-plant-uml">
+                @startuml(id=reset-password)
+                :Present Reset\nPassword Page;
+                if (Password Reset\nSuccess?) then (Yes)
+                (X)
+                Detach
+                (X)
+                :Login Page with\nSuccess Message;
+                !include_many test_plant_uml_diagram_includes_target.dita!olb-mobile-end-split
+                else (No)
+                (Y)
+                Detach
+                (Y)
+                :Login Page with\nGeneric Error Message;
+                !include_many test_plant_uml_diagram_includes_target.dita!olb-mobile-end-split
+                endif
+                @enduml
+            </foreign>
+        </p>
+    </body>
+</topic>
